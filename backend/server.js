@@ -5,12 +5,13 @@ const mysql = require("mysql2/promise");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// 1. variables inyectadas herméticamente desde el entorno (Docker)
 const {
-  DB_HOST = "10.0.3.108", // IP Privada EC2 DB
-  DB_USER = "root",
-  DB_PASSWORD = "admin123",
-  DB_NAME = "tienda_perritos",
-  DB_PORT = 3306,
+  DB_HOST,
+  DB_USER,
+  DB_PASSWORD,
+  DB_NAME,
+  DB_PORT,
 } = process.env;
 
 app.use(cors());
